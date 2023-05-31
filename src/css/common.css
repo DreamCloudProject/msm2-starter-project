@@ -1,0 +1,67 @@
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+/* Common */
+@layer components {
+    :root{
+        --background-color-value: 244 244 245;
+        --border-color-value: 228 228 231;
+        --background-color-secondary-value: 20 24 45;
+        --primary-color-value: 85, 29, 182;
+        --primary-light-color-value: 129, 140, 248;
+        --secondary-color-value: 182, 29, 52;
+        --neutral-color-value: 82, 82, 91;
+        --neutral-light-color-value: 189, 189, 189;
+        --emphasis-color-value: 22, 163, 74;
+        --msm-theme-default-font: 'Arimo';
+        --msm-theme-font-family: var(--msm-theme-default-font), sans-serif;
+        --msm-theme-background-color: rgb(var(--background-color-value));
+        --msm-theme-border-color: rgb(var(--border-color-value));
+        --msm-theme-secondary-background-color: rgb(var(--background-color-secondary-value));
+        --msm-theme-primary-color: rgb(var(--primary-color-value));
+        --msm-theme-primary-transparent-color: rgba(var(--primary-color-value),0.4);
+        --msm-theme-primary-light-color: rgb(var(--primary-light-color-value));
+        --msm-theme-secondary-color: rgb(var(--secondary-color-value));
+        --msm-theme-secondary-transparent-color: rgba(var(--secondary-color-value),0.4);
+        --msm-theme-neutral-color: rgb(var(--neutral-color-value));
+        --msm-theme-neutral-light-color: rgb(var(--neutral-light-color-value));
+        --msm-theme-emphasis-color: rgb(var(--emphasis-color-value));
+    }
+
+    /* Works on Firefox */
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: theme('colors.gray.400') theme('colors.transparent');
+    }
+
+    /* Works on Chrome, Edge, and Safari */
+    *::-webkit-scrollbar {
+        @apply w-2 h-2;
+    }
+
+    *::-webkit-scrollbar-track {
+        @apply bg-transparent;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        @apply rounded-3xl bg-gray-400;
+    }
+
+    msm-input-chips::part(input) {
+        font-family: var(--msm-theme-font-family);
+    }
+
+    body {
+        font-family: var(--msm-theme-font-family);
+        background-color: var(--msm-theme-background-color,#ffffff);
+        @apply m-0 p-0 opacity-100 duration-700 transition-opacity;
+    }
+
+    body.fade {
+        @apply opacity-0;
+    }
+
+}
